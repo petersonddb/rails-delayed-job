@@ -1,0 +1,12 @@
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+.devcontainer
+.DS_Store
+
+/node_modules
+/yarn-error.log
+
+/.bundle
