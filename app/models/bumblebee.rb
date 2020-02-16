@@ -10,14 +10,12 @@ class Bumblebee < ApplicationRecord
   }
 
   def sting?(bumblebee)
-    is_stinged = if high?
-                   bumblebee.low? || bumblebee.moderate?
-                 elsif moderate?
-                   bumblebee.low?
-                 else
-                   false
-                 end
-
-    is_stinged
+    if high?
+      bumblebee.low? || bumblebee.moderate?
+    elsif moderate?
+      bumblebee.low?
+    else
+      false
+    end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Bumblebees
-  class BumblebeeStingJob
+  class StingJob
     def initialize(bee_sting, bee)
       @bee_sting = bee_sting
       @bee       = bee

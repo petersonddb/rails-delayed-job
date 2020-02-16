@@ -10,10 +10,9 @@ RUN apt-get update && \
 WORKDIR /app
 
 COPY . .
-COPY entrypoint.sh /usr/bin/
 
 RUN bundle install
 RUN yarn install
-RUN chmod +x /usr/bin/entrypoint.sh
 
-CMD sh entrypoint.sh
+RUN chmod +x start.sh
+CMD sh start.sh
