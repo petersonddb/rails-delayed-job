@@ -10,35 +10,15 @@ services:
 
   web:
     build: .
-    command: sh start.sh
+    command: sh start.dev.sh
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: peterson
     volumes:
       - .:/app
       - gems:/usr/local/bundle
     ports:
       - 3000:3000
-    depends_on:
-      - db
-      - worker
-
-  worker:
-    build: .
-    command: sh start.sh
-    environment:
-      WORKER: 'true'
-    volumes:
-      - .:/app
-      - gems:/usr/local/bundle
-    depends_on:
-      - db
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: 'petersondaronch@gmail.com'
-      PGADMIN_DEFAULT_PASSWORD: 'bumblebee'
-      PGADMIN_LISTEN_PORT: '8080'
-    ports:
-      - 8080:8080
     depends_on:
       - db
 
